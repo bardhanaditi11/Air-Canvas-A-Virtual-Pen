@@ -5,7 +5,7 @@ with OpenCV (HSV color tracking + contour detection) and a tkinter control
 panel — no Flask, no MediaPipe, no deep learning framework required for
 core drawing.
 
-An optional add-on recognizes hand-drawn letters (A–Z) using a lightweight
+It recognizes hand-drawn letters (A–Z) using a lightweight
 scikit-learn classifier trained on EMNIST.
 
 ## Features
