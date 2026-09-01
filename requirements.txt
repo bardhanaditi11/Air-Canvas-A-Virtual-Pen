@@ -1,0 +1,7 @@
+opencv-python>=4.5
+numpy>=1.21
+
+# Optional - only needed for the "Recognize Letter" feature
+pandas>=1.3
+scikit-learn>=1.0
+joblib>=1.1

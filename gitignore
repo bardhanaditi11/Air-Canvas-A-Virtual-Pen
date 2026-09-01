@@ -1,0 +1,23 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Trained model (regenerate locally via train_letter_classifier.py)
+letter_model.joblib
+
+# EMNIST dataset CSVs (large - download separately, see README)
+emnist-letters-train.csv
+emnist-letters-test.csv
+archive.zip
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
