@@ -1,24 +1,21 @@
-from fastapi import FastAPI
+import traceback
+from fastapi import Request
+from fastapi.responses import JSONResponse
 
-app = FastAPI(title="Air Canvas API")
+@app.exception_handler(Exception)
+async def catch_all_errors(request: Request, exc: Exception):
+    return JSONResponse(
+        status_code=500,
+        content={
+            "error": str(exc),
+            "type": type(exc).__name__,
+            "trace": traceback.format_exc().splitlines()[-5:],  # last 5 lines
+        },
+    )
 
-@app.get("/")
-def home():
-    return {"message": "Hello from Python on Vercel"}
-
-@app.get("/api/items/{item_id}")
-def read_item(item_id: int):
-    return {"item_id": item_id}
-
-@app.get("/api/project")
-def project_info():
-    return {
-        "name": "Air Canvas - Virtual Pen",
-        "description": "Draw in the air using webcam-based color tracking with OpenCV + tkinter",
-        "core_tech": ["OpenCV", "NumPy", "tkinter"],
-        "optional_feature": "Handwritten letter recognition via scikit-learn (EMNIST-trained)",
-        "note": "The desktop app requires local webcam access and cannot run as a serverless function."
-    }
+@app.get("/api/health")
+def health():
+    return {"status": "ok"}
 
 
 import os
