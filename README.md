@@ -1,6 +1,6 @@
 # Air Canvas — Virtual Pen
 
-Draw in the air by moving a colored object in front of your webcam. Built
+Draw in the air by moving a colored object in front of the webcam. Built
 with OpenCV (HSV color tracking + contour detection) and a tkinter control
 panel — no Flask, no MediaPipe, no deep learning framework required for
 core drawing.
