@@ -1,4 +1,24 @@
+from fastapi import FastAPI
 
+app = FastAPI(title="Air Canvas API")
+
+@app.get("/")
+def home():
+    return {"message": "Hello from Python on Vercel"}
+
+@app.get("/api/items/{item_id}")
+def read_item(item_id: int):
+    return {"item_id": item_id}
+
+@app.get("/api/project")
+def project_info():
+    return {
+        "name": "Air Canvas - Virtual Pen",
+        "description": "Draw in the air using webcam-based color tracking with OpenCV + tkinter",
+        "core_tech": ["OpenCV", "NumPy", "tkinter"],
+        "optional_feature": "Handwritten letter recognition via scikit-learn (EMNIST-trained)",
+        "note": "The desktop app requires local webcam access and cannot run as a serverless function."
+    }
 
 
 import os
