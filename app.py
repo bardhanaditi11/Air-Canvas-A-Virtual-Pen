@@ -1,37 +1,5 @@
-"""
-train_letter_classifier.py
----------------------------
-One-time training script for Air Canvas's letter recognition feature.
 
-WHY THIS VERSION USES A MANUAL CSV DOWNLOAD:
-The `emnist` pip package's built-in auto-downloader points at an old NIST
-URL that is now dead / redirects to an error page, so it saves a broken
-file and then fails with "BadZipFile: File is not a zip file". This is a
-known, widespread issue (also breaks torchvision/tensorflow-datasets'
-EMNIST downloaders) - not something wrong with your setup. Kaggle hosts
-a stable, ready-to-use CSV copy of the same dataset, so this script reads
-from that instead.
 
-SETUP (do this once):
-    1. pip install pandas scikit-learn joblib numpy
-    2. Go to: https://www.kaggle.com/datasets/crawford/emnist
-       (free Kaggle account required to download)
-    3. Download the dataset and extract just these two files into the
-       SAME FOLDER as this script:
-           emnist-letters-train.csv
-           emnist-letters-test.csv
-       (You can delete the other emnist-*.csv files in that download -
-       digits/balanced/byclass/etc - they aren't needed here.)
-    4. Run: python train_letter_classifier.py
-
-This trains a small scikit-learn MLPClassifier (a lightweight neural
-net - NOT tensorflow/torch) and saves it to letter_model.joblib in this
-folder. air_canvas.py loads that file automatically at startup. If it's
-missing, letter recognition is just disabled - drawing/erasing still
-works fine without it.
-
-Training takes a few minutes on a normal laptop CPU.
-"""
 
 import os
 import numpy as np
